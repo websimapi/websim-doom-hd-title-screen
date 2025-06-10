@@ -1,0 +1,152 @@
+/* Main menu styles */
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.menu-button {
+    position: relative;
+    background: linear-gradient(45deg, rgba(139, 0, 0, 0.8), rgba(255, 0, 0, 0.6));
+    border: 3px solid #ff0000;
+    color: #ffffff;
+    font-family: 'Metal Mania', cursive;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    cursor: crosshair;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.menu-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.menu-button:hover::before {
+    left: 100%;
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.button-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    z-index: 0;
+}
+
+.menu-button:hover {
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(255, 100, 0, 0.8));
+    border-color: #ffaa00;
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(255, 0, 0, 0.6),
+        inset 0 2px 8px rgba(255, 255, 255, 0.2);
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.menu-button:hover .button-glow {
+    width: 120%;
+    height: 120%;
+}
+
+.menu-button:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 
+        0 4px 15px rgba(255, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Special styling for quit button */
+.menu-button[data-action="quit"] {
+    background: linear-gradient(45deg, rgba(139, 0, 0, 0.9), rgba(80, 0, 0, 0.8));
+    border-color: #aa0000;
+}
+
+.menu-button[data-action="quit"]:hover {
+    background: linear-gradient(45deg, rgba(200, 0, 0, 0.9), rgba(139, 0, 0, 0.9));
+    border-color: #ff0000;
+    animation: dangerPulse 0.5s ease-in-out infinite alternate;
+}
+
+/* Menu appear animation */
+.menu-button {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: menuSlideIn 0.8s ease-out forwards;
+}
+
+.menu-button:nth-child(1) { animation-delay: 0.2s; }
+.menu-button:nth-child(2) { animation-delay: 0.4s; }
+.menu-button:nth-child(3) { animation-delay: 0.6s; }
+.menu-button:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes menuSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dangerPulse {
+    0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+    100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .menu-button {
+        font-size: 16px;
+        padding: 12px 30px;
+        min-width: 180px;
+    }
+    
+    .main-menu {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-button {
+        font-size: 14px;
+        padding: 10px 25px;
+        min-width: 160px;
+    }
+    
+    .main-menu {
+        gap: 12px;
+    }
+}
+

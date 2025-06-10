@@ -1,0 +1,69 @@
+/* Fire effect container */
+.fire-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#fire-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Additional fire effects */
+.fire-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(
+        to top,
+        rgba(255, 0, 0, 0.8) 0%,
+        rgba(255, 100, 0, 0.6) 20%,
+        rgba(255, 150, 0, 0.4) 40%,
+        rgba(255, 200, 0, 0.2) 60%,
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+    animation: fireGlow 2s ease-in-out infinite alternate;
+}
+
+.fire-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: radial-gradient(
+        ellipse at bottom,
+        rgba(255, 0, 0, 0.9) 0%,
+        rgba(255, 50, 0, 0.7) 30%,
+        transparent 70%
+    );
+    z-index: 3;
+    pointer-events: none;
+    animation: fireBase 1.5s ease-in-out infinite;
+}
+
+@keyframes fireGlow {
+    0% { opacity: 0.8; transform: scaleY(1); }
+    100% { opacity: 1; transform: scaleY(1.1); }
+}
+
+@keyframes fireBase {
+    0%, 100% { transform: scaleX(1) scaleY(1); }
+    50% { transform: scaleX(1.05) scaleY(0.95); }
+}
+

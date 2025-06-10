@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOM - HD Title Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fire.css">
+    <link rel="stylesheet" href="title_menu_buttons.css">
+</head>
+<body>
+    <div class="background-layer"></div>
+    
+    <!-- Enhanced fire container with multiple layers -->
+    <div class="fire-container">
+        <canvas id="fire-canvas"></canvas>
+        <div class="fire-overlay"></div>
+    </div>
+
+    <!-- Main title container -->
+    <div class="title-container">
+        <div class="logo-wrapper">
+            <h1 class="doom-title">
+                <span class="doom-title-do">DO</span><span class="doom-title-om">OM</span>
+            </h1>
+            <div class="title-glow"></div>
+            <div class="title-sparks"></div>
+        </div>
+        
+        <!-- Enhanced main menu -->
+        <div class="main-menu">
+            <button class="menu-button" data-action="start">
+                <span class="button-text">NEW GAME</span>
+                <div class="button-glow"></div>
+            </button>
+            <button class="menu-button" data-action="load">
+                <span class="button-text">LOAD GAME</span>
+                <div class="button-glow"></div>
+            </button>
+            <button class="menu-button" data-action="options">
+                <span class="button-text">OPTIONS</span>
+                <div class="button-glow"></div>
+            </button>
+            <button class="menu-button" data-action="quit">
+                <span class="button-text">QUIT GAME</span>
+                <div class="button-glow"></div>
+            </button>
+        </div>
+        
+        <!-- Version info -->
+        <div class="version-info">
+            <span>DOOM HD REMASTER v1.0</span>
+        </div>
+    </div>
+
+    <!-- Audio controls -->
+    <div class="audio-controls">
+        <button id="mute-button" class="audio-btn">🔊</button>
+        <div class="volume-slider">
+            <input type="range" id="volume-control" min="0" max="100" value="50">
+        </div>
+    </div>
+
+    <!-- Loading screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">DOOM</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">LOADING HELL...</div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="music_player.js"></script>
+    <script type="module" src="fire_shader.js"></script>
+    <script type="module" src="particles.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
